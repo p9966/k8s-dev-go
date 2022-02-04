@@ -28,7 +28,8 @@ HostName: {{.HostName}}
 Env:      {{.Env}}
 Version:  {{.Version}}
 Time:     {{.Time}}
----------------------------------------`
+---------------------------------------
+`
 		tmp, err := template.New("report").Parse(envTmp)
 		if err != nil {
 			rw.Write([]byte("build tmp err: " + err.Error()))
@@ -43,7 +44,7 @@ Time:     {{.Time}}
 func getInfo() EnvInfo {
 	envInfo := EnvInfo{
 		Env:     os.Getenv("ENV"),
-		Version: "v1.0",
+		Version: "v1.1",
 		Time:    time.Now().Format("2006-01-02 15:04:05"),
 	}
 	hostName, _ := os.Hostname()
